@@ -1,0 +1,175 @@
+# Prompt templates for different RAG tasks
+
+# System prompts for different domains
+system_prompts:
+  general: |
+    You are a helpful AI assistant that provides accurate and informative responses based on the given context.
+    Use the provided context to answer questions, but also indicate when information is not available in the context.
+    Be concise, accurate, and helpful in your responses.
+
+  technology: |
+    You are a technical AI assistant specializing in software development and technology topics.
+    Provide detailed technical explanations, code examples when relevant, and best practices.
+    Use the provided context to give accurate technical guidance.
+
+  science: |
+    You are a scientific AI assistant that helps with research and academic questions.
+    Provide evidence-based responses using the research context provided.
+    Cite specific studies or data points when available in the context.
+
+  business: |
+    You are a business AI assistant focused on providing strategic and operational guidance.
+    Use the business context to provide actionable insights and recommendations.
+    Consider practical implications and real-world constraints in your responses.
+
+  healthcare: |
+    You are a healthcare AI assistant providing information based on medical literature and guidelines.
+    Always emphasize that responses are for informational purposes only and not medical advice.
+    Recommend consulting healthcare professionals for medical decisions.
+
+  legal: |
+    You are a legal AI assistant helping with legal and compliance questions.
+    Provide information based on the legal context provided, but always note that this is not legal advice.
+    Recommend consulting qualified legal professionals for specific legal matters.
+
+# Query understanding and rewriting prompts
+query_prompts:
+  rewrite_query: |
+    Rewrite the following user query to be more specific and searchable while preserving the original intent:
+    
+    Original query: {query}
+    
+    Rewritten query:
+
+  extract_intent: |
+    Analyze the following user query and extract the main intent and key concepts:
+    
+    Query: {query}
+    
+    Intent:
+    Key concepts:
+
+# Answer synthesis prompts
+synthesis_prompts:
+  default: |
+    Based on the following context, please answer the user's question. If the context doesn't contain enough information to fully answer the question, say so clearly.
+
+    Context:
+    {context}
+
+    Question: {question}
+
+    Answer:
+
+  with_citations: |
+    Based on the following context, please answer the user's question and include citations to the source documents.
+
+    Context:
+    {context}
+
+    Question: {question}
+
+    Please provide a comprehensive answer with citations in the format [Source: document_id].
+
+    Answer:
+
+  summarization: |
+    Please provide a concise summary of the following text, highlighting the key points and main arguments:
+
+    Text to summarize:
+    {text}
+
+    Summary:
+
+  follow_up: |
+    Based on the previous conversation and the new context provided, please answer the follow-up question:
+
+    Previous context:
+    {previous_context}
+
+    New context:
+    {new_context}
+
+    Follow-up question: {question}
+
+    Answer:
+
+# Few-shot examples for different domains
+few_shot_examples:
+  technology:
+    - query: "How do I implement authentication in a REST API?"
+      context: "REST API authentication can be implemented using various methods including JWT tokens, OAuth, and API keys..."
+      answer: "Based on the context, there are several ways to implement authentication in a REST API:\n\n1. JWT Tokens: JSON Web Tokens provide stateless authentication...\n2. OAuth: OAuth 2.0 provides secure authorization...\n3. API Keys: Simple authentication using unique keys..."
+
+  science:
+    - query: "What are the effects of climate change on biodiversity?"
+      context: "Climate change impacts biodiversity through habitat loss, temperature changes, and altered precipitation patterns..."
+      answer: "According to the research context, climate change affects biodiversity in several key ways:\n\n1. Habitat Loss: Rising temperatures and changing weather patterns...\n2. Species Migration: Many species are forced to migrate...\n3. Ecosystem Disruption: Changes in precipitation affect..."
+
+  business:
+    - query: "What are the key metrics for measuring customer satisfaction?"
+      context: "Customer satisfaction can be measured through Net Promoter Score (NPS), Customer Satisfaction Score (CSAT), and Customer Effort Score (CES)..."
+      answer: "Based on the business context, the key customer satisfaction metrics include:\n\n1. Net Promoter Score (NPS): Measures customer loyalty...\n2. Customer Satisfaction Score (CSAT): Direct satisfaction rating...\n3. Customer Effort Score (CES): Measures ease of interaction..."
+
+# Evaluation prompts
+evaluation_prompts:
+  relevance_check: |
+    Evaluate how relevant the following context is to answering the user's question.
+    Rate the relevance on a scale of 1-5 where:
+    1 = Not relevant at all
+    2 = Slightly relevant
+    3 = Moderately relevant
+    4 = Highly relevant
+    5 = Perfectly relevant
+
+    Question: {question}
+    Context: {context}
+
+    Relevance score (1-5):
+    Explanation:
+
+  answer_quality: |
+    Evaluate the quality of the following answer based on the given context and question.
+    Consider accuracy, completeness, clarity, and helpfulness.
+
+    Question: {question}
+    Context: {context}
+    Answer: {answer}
+
+    Quality assessment:
+    - Accuracy (1-5):
+    - Completeness (1-5):
+    - Clarity (1-5):
+    - Overall quality (1-5):
+
+# Error handling prompts
+error_prompts:
+  no_context: |
+    I apologize, but I don't have enough relevant information in my knowledge base to answer your question about "{query}". 
+    This could be because:
+    - The topic is not covered in the available documents
+    - The question requires more specific information
+    - The search didn't find relevant content
+    
+    Could you please rephrase your question or provide more context?
+
+  insufficient_context: |
+    Based on the available information, I can provide a partial answer to your question about "{query}", but the context is limited.
+    
+    {partial_answer}
+    
+    For a more comprehensive answer, you might want to consult additional sources or rephrase your question to be more specific.
+
+  ambiguous_query: |
+    Your question "{query}" could be interpreted in multiple ways. Could you please clarify what specific aspect you're interested in?
+    
+    Possible interpretations:
+    {interpretations}
+
+# Prompt optimization settings
+settings:
+  max_context_length: 8000
+  max_answer_length: 1000
+  temperature: 0.1
+  include_metadata: true
+  citation_format: "[Source: {document_id}, Page: {page}]"

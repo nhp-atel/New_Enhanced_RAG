@@ -1,0 +1,44 @@
+caching:
+  enabled: true
+  max_cache_size_mb: 1024
+  redis_url: null
+  ttl_seconds: 3600
+chunking:
+  chunk_size: 1000
+  overlap: 200
+  strategy: recursive
+data_directory: ./data
+embedding:
+  batch_size: 100
+  max_retries: 3
+  model_name: text-embedding-ada-002
+  provider: openai
+  timeout_seconds: 30
+environment: local
+llm:
+  max_retries: 3
+  max_tokens: 2048
+  model_name: gpt-4-turbo-preview
+  provider: openai
+  temperature: 0.1
+  timeout_seconds: 60
+max_concurrent_requests: 10
+observability:
+  correlation_id_header: X-Correlation-ID
+  log_format: json
+  log_level: DEBUG
+  metrics_enabled: true
+  metrics_port: 8000
+  tracing_enabled: false
+retrieval:
+  max_context_length: 8000
+  rerank_enabled: false
+  score_threshold: 0.7
+  top_k: 5
+temp_directory: ./tmp
+vector_store:
+  backup_enabled: true
+  index_type: IndexFlatIP
+  persistence_path: ./data/vector_index
+  provider: faiss
+  save_interval_minutes: 30

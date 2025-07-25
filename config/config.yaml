@@ -1,0 +1,62 @@
+# Enhanced RAG System Configuration
+
+environment: local
+
+# Text chunking configuration
+chunking:
+  chunk_size: 1000
+  overlap: 200
+  strategy: "recursive"  # recursive, semantic, sentence
+
+# Embedding generation configuration
+embedding:
+  provider: "openai"     # openai, huggingface, azure
+  model_name: "text-embedding-ada-002"
+  batch_size: 100
+  max_retries: 3
+  timeout_seconds: 30
+
+# Vector store configuration
+vector_store:
+  provider: "faiss"      # faiss, chroma, weaviate
+  index_type: "IndexFlatIP"
+  persistence_path: "./data/vector_index"
+  save_interval_minutes: 30
+  backup_enabled: true
+
+# LLM client configuration
+llm:
+  provider: "openai"     # openai, anthropic, azure
+  model_name: "gpt-4-turbo-preview"
+  max_tokens: 2048
+  temperature: 0.1
+  max_retries: 3
+  timeout_seconds: 60
+
+# Retrieval configuration
+retrieval:
+  top_k: 5
+  score_threshold: 0.7
+  rerank_enabled: false
+  max_context_length: 8000
+
+# Caching configuration
+caching:
+  enabled: true
+  redis_url: null        # Use in-memory cache if null
+  ttl_seconds: 3600
+  max_cache_size_mb: 1024
+
+# Observability configuration
+observability:
+  log_level: "INFO"      # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  log_format: "json"     # json, text
+  metrics_enabled: true
+  metrics_port: 8000
+  tracing_enabled: false
+  correlation_id_header: "X-Correlation-ID"
+
+# Runtime settings
+data_directory: "./data"
+temp_directory: "./tmp"
+max_concurrent_requests: 10

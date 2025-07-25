@@ -1,0 +1,30 @@
+Enhanced RAG System Test Document
+
+This is a sample document created for testing the Enhanced RAG system.
+
+Introduction
+The Enhanced RAG (Retrieval-Augmented Generation) system is designed to help you 
+build intelligent document search and question-answering applications.
+
+Key Features
+- Modular architecture with pluggable components
+- Configuration-driven design with no hardcoded values
+- Production-ready with comprehensive monitoring
+- Support for multiple document formats
+- REST API and CLI interfaces
+
+Getting Started
+To get started with the Enhanced RAG system:
+1. Install the dependencies
+2. Configure your API keys
+3. Load your documents
+4. Start asking questions
+
+Technical Details
+The system uses vector embeddings to understand document content and retrieve
+relevant information to answer user questions. It supports various embedding
+providers and LLM models.
+
+Conclusion
+This Enhanced RAG system provides a robust foundation for building AI-powered
+document analysis and question-answering applications.

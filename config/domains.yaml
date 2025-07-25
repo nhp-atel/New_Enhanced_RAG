@@ -1,0 +1,78 @@
+# Domain and category definitions
+
+domains:
+  general:
+    name: "General Knowledge"
+    description: "General purpose domain for mixed content"
+    keywords: ["general", "miscellaneous", "mixed"]
+    
+  technology:
+    name: "Technology & Software"
+    description: "Software development, programming, and technology topics"
+    keywords: ["programming", "software", "technology", "development", "coding"]
+    
+  science:
+    name: "Science & Research"
+    description: "Scientific research, papers, and academic content"
+    keywords: ["research", "science", "academic", "study", "experiment"]
+    
+  business:
+    name: "Business & Finance"
+    description: "Business operations, finance, and management topics"
+    keywords: ["business", "finance", "management", "strategy", "economics"]
+    
+  healthcare:
+    name: "Healthcare & Medicine"
+    description: "Medical information, healthcare practices, and research"
+    keywords: ["medical", "healthcare", "medicine", "health", "clinical"]
+    
+  legal:
+    name: "Legal & Compliance"
+    description: "Legal documents, regulations, and compliance information"
+    keywords: ["legal", "law", "compliance", "regulation", "policy"]
+    
+  education:
+    name: "Education & Training"
+    description: "Educational content, training materials, and learning resources"
+    keywords: ["education", "training", "learning", "teaching", "curriculum"]
+
+# Category classifications for documents
+categories:
+  document_types:
+    - "research_paper"
+    - "technical_manual"
+    - "policy_document"
+    - "user_guide"
+    - "specification"
+    - "report"
+    - "presentation"
+    - "article"
+    - "book_chapter"
+    - "white_paper"
+  
+  content_types:
+    - "procedural"
+    - "conceptual"
+    - "reference"
+    - "tutorial"
+    - "faq"
+    - "troubleshooting"
+    - "best_practices"
+    - "case_study"
+
+# Language support
+languages:
+  supported:
+    - code: "en"
+      name: "English"
+      default: true
+    - code: "es"
+      name: "Spanish"
+    - code: "fr"
+      name: "French"
+    - code: "de"
+      name: "German"
+    - code: "zh"
+      name: "Chinese"
+    - code: "ja"
+      name: "Japanese"

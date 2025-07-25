@@ -1,0 +1,53 @@
+# Production environment configuration overrides
+
+environment: production
+
+# Production chunking settings
+chunking:
+  chunk_size: 1500
+  overlap: 300
+
+# Production embedding settings
+embedding:
+  batch_size: 200
+  max_retries: 5
+  timeout_seconds: 60
+
+# Production vector store settings
+vector_store:
+  persistence_path: "/data/vector_index"
+  save_interval_minutes: 15
+  backup_enabled: true
+
+# Production LLM settings
+llm:
+  max_tokens: 4096
+  temperature: 0.0
+  max_retries: 5
+  timeout_seconds: 120
+
+# Production retrieval settings
+retrieval:
+  top_k: 10
+  score_threshold: 0.8
+  rerank_enabled: true
+  max_context_length: 16000
+
+# Production caching settings
+caching:
+  enabled: true
+  ttl_seconds: 7200
+  max_cache_size_mb: 4096
+
+# Production observability
+observability:
+  log_level: "INFO"
+  log_format: "json"
+  metrics_enabled: true
+  metrics_port: 8000
+  tracing_enabled: true
+
+# Production runtime settings
+data_directory: "/data"
+temp_directory: "/tmp"
+max_concurrent_requests: 50

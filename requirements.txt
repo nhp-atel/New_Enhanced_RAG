@@ -44,6 +44,7 @@ pytest>=7.4.0,<8.0.0
 pytest-asyncio>=0.21.0,<1.0.0
 pytest-cov>=4.1.0,<5.0.0
 pytest-mock>=3.12.0,<4.0.0
+pytest-benchmark>=4.0.0,<5.0.0
 
 # Code quality
 black>=23.12.0,<24.0.0
@@ -54,6 +55,10 @@ mypy>=1.8.0,<2.0.0
 # Development tools
 pre-commit>=3.6.0,<4.0.0
 jupyter>=1.0.0,<2.0.0
+sphinx>=7.1.0,<8.0.0
+sphinx-rtd-theme>=2.0.0,<3.0.0
+safety>=3.0.0,<4.0.0
+bandit>=1.7.0,<2.0.0
 
 # Additional utilities
 python-dotenv>=1.0.0,<2.0.0

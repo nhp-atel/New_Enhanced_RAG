@@ -30,12 +30,12 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Set up Python ${{ env.PYTHON_VERSION }}
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ env.PYTHON_VERSION }}
 
     - name: Cache pip dependencies
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: ~/.cache/pip
         key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
@@ -89,7 +89,7 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Set up Python ${{ env.PYTHON_VERSION }}
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ env.PYTHON_VERSION }}
 
@@ -107,7 +107,7 @@ jobs:
         bandit -r enhanced_rag -f json -o bandit-report.json
 
     - name: Upload bandit report
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       if: always()
       with:
         name: bandit-report
@@ -145,7 +145,7 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Set up Python ${{ env.PYTHON_VERSION }}
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ env.PYTHON_VERSION }}
 
@@ -175,7 +175,7 @@ jobs:
     - uses: actions/checkout@v4
 
     - name: Set up Python ${{ env.PYTHON_VERSION }}
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v5
       with:
         python-version: ${{ env.PYTHON_VERSION }}
 
@@ -191,7 +191,7 @@ jobs:
         make html
 
     - name: Upload documentation
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: documentation
         path: docs/_build/html/
